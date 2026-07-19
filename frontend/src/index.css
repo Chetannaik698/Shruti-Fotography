@@ -1,0 +1,83 @@
+:root {
+  --color-bg: 255, 255, 255;
+  --color-card: 245, 245, 245;
+  --color-ink: 11, 11, 11;
+  --color-muted: 102, 102, 102;
+}
+
+.dark {
+  --color-bg: 11, 11, 11;
+  --color-card: 21, 21, 21;
+  --color-ink: 255, 255, 255;
+  --color-muted: 154, 154, 154;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #D4AF37 rgba(var(--color-bg), 1);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(var(--color-bg), 1);
+}
+::-webkit-scrollbar-thumb {
+  background: #3a3324;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+::selection {
+  background: #D4AF37;
+  color: #0B0B0B;
+}
+
+body {
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.eyebrow {
+  @apply font-body text-[11px] md:text-xs uppercase tracking-widest2 text-gold/90;
+}
+
+.section-heading {
+  @apply font-display text-4xl md:text-5xl lg:text-6xl font-medium text-ink leading-[1.1];
+}
+
+.divider-gold {
+  @apply h-px w-14 bg-gold;
+}
+
+.btn-primary {
+  @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gold-gradient px-8 py-3.5 text-sm font-semibold uppercase tracking-widest text-bg transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-[0.98];
+}
+
+.btn-outline {
+  @apply relative inline-flex items-center justify-center gap-2 rounded-full border border-ink/20 dark:border-white/25 px-8 py-3.5 text-sm font-semibold uppercase tracking-widest text-ink backdrop-blur-sm transition-all duration-300 ease-out hover:border-gold hover:text-gold;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
