@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState, useCallback } from 'react'
 import api from '../api/axios'
 import { useAuth } from './AuthContext'
+import { getOptimizedCloudinaryUrl } from '../utils/image'
 
 const GalleryContext = createContext(null)
 
@@ -20,11 +21,15 @@ function normalizeImage(raw, loggedIn = false) {
     }
   }
 
+  const rawUrl = raw.imageUrl || ''
   return {
     id: raw.id || raw._id,
     title: raw.title,
     description: raw.description,
-    imageUrl: raw.imageUrl,
+    imageUrl: getOptimizedCloudinaryUrl(rawUrl),
+    thumbnailUrl: getOptimizedCloudinaryUrl(rawUrl, 800),
+    optimizedUrl: getOptimizedCloudinaryUrl(rawUrl, 1600),
+    rawImageUrl: rawUrl,
     tall: raw.tall,
     featured: raw.featured,
     likesCount: raw.likesCount,

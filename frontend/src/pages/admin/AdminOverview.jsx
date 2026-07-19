@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { FiImage, FiTag, FiUsers, FiHeart, FiCalendar } from 'react-icons/fi'
 import api from '../../api/axios'
+import { getOptimizedCloudinaryUrl } from '../../utils/image'
 
 export default function AdminOverview() {
   const [stats, setStats] = useState(null)
@@ -53,7 +54,7 @@ export default function AdminOverview() {
           <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
             {stats.recentImages.map((img) => (
               <div key={img._id} className="overflow-hidden rounded-sm border border-white/10">
-                <img src={img.imageUrl} alt={img.title} className="aspect-square w-full object-cover" />
+                <img src={getOptimizedCloudinaryUrl(img.imageUrl, 300)} alt={img.title} className="aspect-square w-full object-cover" />
               </div>
             ))}
           </div>
@@ -70,7 +71,7 @@ export default function AdminOverview() {
                 className="flex items-center justify-between rounded-sm border border-white/10 bg-card px-4 py-3"
               >
                 <div className="flex items-center gap-3">
-                  <img src={img.imageUrl} alt={img.title} className="h-10 w-10 rounded-sm object-cover" />
+                  <img src={getOptimizedCloudinaryUrl(img.imageUrl, 100)} alt={img.title} className="h-10 w-10 rounded-sm object-cover" />
                   <div>
                     <p className="text-sm text-ink">{img.title}</p>
                     <p className="text-xs text-muted">{img.category?.name}</p>

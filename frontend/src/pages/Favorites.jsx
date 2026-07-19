@@ -4,6 +4,7 @@ import { FiHeart } from 'react-icons/fi'
 import api from '../api/axios'
 import { useAuth } from '../context/AuthContext'
 import { useGallery } from '../context/GalleryContext'
+import { getOptimizedCloudinaryUrl } from '../utils/image'
 
 export default function Favorites() {
   const { isAuthenticated } = useAuth()
@@ -16,7 +17,15 @@ export default function Favorites() {
     if (isAuthenticated) {
       api
         .get('/likes/me')
-        .then(({ data }) => setImages(data.images))
+        .then(({ data }) => {
+          const normalized = data.images.map((img) => ({
+            ...img,
+            imageUrl: getOptimizedCloudinaryUrl(img.imageUrl),
+            thumbnailUrl: getOptimizedCloudinaryUrl(img.imageUrl, 800),
+            optimizedUrl: getOptimizedCloudinaryUrl(img.imageUrl, 1600),
+          }))
+          setImages(normalized)
+        })
         .catch((err) => setError(err.response?.data?.message || 'Failed to load favorites'))
         .finally(() => setLoading(false))
     } else {
@@ -77,7 +86,7 @@ export default function Favorites() {
               transition={{ delay: i * 0.05, duration: 0.4 }}
               className="overflow-hidden rounded-sm bg-card"
             >
-              <img src={img.imageUrl} alt={img.title} className="aspect-[4/5] w-full object-cover" />
+              <img src={img.thumbnailUrl || img.imageUrl} alt={img.title} className="aspect-[4/5] w-full object-cover" />
               <figcaption className="p-3">
                 <p className="text-sm text-ink">{img.title}</p>
                 <p className="text-xs text-gold">{img.category?.name}</p>

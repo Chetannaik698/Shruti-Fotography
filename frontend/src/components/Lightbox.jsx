@@ -44,7 +44,7 @@ export default function Lightbox({ image, onClose, onPrev, onNext }) {
             onClick={(e) => e.stopPropagation()}
           >
             <img
-              src={image.imageUrl}
+              src={image.optimizedUrl || image.imageUrl}
               alt={image.title}
               className="max-h-[82vh] w-auto rounded-sm object-contain shadow-card"
             />

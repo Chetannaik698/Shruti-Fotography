@@ -194,7 +194,7 @@ export default function AdminImages() {
               className="group overflow-hidden rounded-sm border border-white/10 bg-card flex flex-col justify-between"
             >
               <div className="relative overflow-hidden">
-                <img src={img.imageUrl} alt={img.title} className="aspect-[4/5] w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img src={img.thumbnailUrl || img.imageUrl} alt={img.title} className="aspect-[4/5] w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 {(img.featured || img.tall) && (
                   <div className="absolute left-2 top-2 flex flex-wrap gap-1">
                     {img.featured && (

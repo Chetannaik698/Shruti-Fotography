@@ -89,7 +89,7 @@ export default function Portfolio() {
                 onClick={() => setLightboxImage(item)}
               >
                 <img
-                  src={item.imageUrl}
+                  src={item.thumbnailUrl || item.imageUrl}
                   alt={item.title}
                   loading="lazy"
                   className="h-auto w-full block transition-transform duration-[1400ms] ease-out group-hover:scale-110"
