@@ -1,20 +1,12 @@
 import { motion } from 'framer-motion'
 import { FiHeart } from 'react-icons/fi'
-import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext'
 import { useGallery } from '../context/GalleryContext'
 
 export default function LikeButton({ image, size = 16, className = '' }) {
-  const { isAuthenticated } = useAuth()
   const { toggleLike } = useGallery()
-  const navigate = useNavigate()
 
   const handleClick = async (e) => {
     e.stopPropagation()
-    if (!isAuthenticated) {
-      navigate('/login')
-      return
-    }
     try {
       await toggleLike(image.id)
     } catch (err) {

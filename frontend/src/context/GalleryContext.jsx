@@ -7,7 +7,19 @@ const GalleryContext = createContext(null)
 // The list endpoint (GET /gallery) returns a flattened shape: { id, category: { id, name, slug }, ... }.
 // The create/update endpoints return the raw populated Mongoose doc: { _id, category: { _id, name, slug }, ... }.
 // Normalize both to the same flattened shape so components never have to special-case either source.
-function normalizeImage(raw) {
+function normalizeImage(raw, loggedIn = false) {
+  let likedByMe = false
+  if (loggedIn) {
+    likedByMe = raw.likedByMe ?? false
+  } else {
+    try {
+      const guestLikes = JSON.parse(localStorage.getItem('guest_likes') || '[]')
+      likedByMe = guestLikes.includes(raw.id || raw._id)
+    } catch (e) {
+      likedByMe = false
+    }
+  }
+
   return {
     id: raw.id || raw._id,
     title: raw.title,
@@ -16,7 +28,7 @@ function normalizeImage(raw) {
     tall: raw.tall,
     featured: raw.featured,
     likesCount: raw.likesCount,
-    likedByMe: raw.likedByMe ?? false,
+    likedByMe,
     category: raw.category
       ? { id: raw.category.id || raw.category._id, name: raw.category.name, slug: raw.category.slug }
       : null,
@@ -38,9 +50,10 @@ export function GalleryProvider({ children }) {
 
   const fetchImages = useCallback(async (categorySlug = 'all') => {
     const { data } = await api.get('/gallery', { params: { category: categorySlug, limit: 100 } })
-    setImages(data.images)
-    return data.images
-  }, [])
+    const normalized = data.images.map((img) => normalizeImage(img, isAuthenticated))
+    setImages(normalized)
+    return normalized
+  }, [isAuthenticated])
 
   const refreshAll = useCallback(async () => {
     setLoading(true)
@@ -82,7 +95,7 @@ export function GalleryProvider({ children }) {
     const { data } = await api.post('/gallery', formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
     })
-    const normalized = normalizeImage(data.image)
+    const normalized = normalizeImage(data.image, isAuthenticated)
     setImages((prev) => [normalized, ...prev])
     return normalized
   }
@@ -91,7 +104,7 @@ export function GalleryProvider({ children }) {
     const { data } = await api.put(`/gallery/${id}`, formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
     })
-    const normalized = normalizeImage(data.image)
+    const normalized = normalizeImage(data.image, isAuthenticated)
     setImages((prev) => prev.map((img) => (img.id === id ? normalized : img)))
     return normalized
   }
@@ -102,10 +115,33 @@ export function GalleryProvider({ children }) {
   }
 
   const toggleLike = async (imageId) => {
-    const { data } = await api.post(`/likes/${imageId}`)
+    let action = 'like'
+    let liked = true
+    if (!isAuthenticated) {
+      let guestLikes = []
+      try {
+        guestLikes = JSON.parse(localStorage.getItem('guest_likes') || '[]')
+      } catch (e) {
+        guestLikes = []
+      }
+      if (guestLikes.includes(imageId)) {
+        action = 'unlike'
+        guestLikes = guestLikes.filter((id) => id !== imageId)
+        liked = false
+      } else {
+        action = 'like'
+        guestLikes.push(imageId)
+        liked = true
+      }
+      localStorage.setItem('guest_likes', JSON.stringify(guestLikes))
+    }
+
+    const { data } = await api.post(`/likes/${imageId}`, { action })
+    const resolvedLiked = isAuthenticated ? data.liked : liked
+
     setImages((prev) =>
       prev.map((img) =>
-        img.id === imageId ? { ...img, likesCount: data.likesCount, likedByMe: data.liked } : img
+        img.id === imageId ? { ...img, likesCount: data.likesCount, likedByMe: resolvedLiked } : img
       )
     )
     return data

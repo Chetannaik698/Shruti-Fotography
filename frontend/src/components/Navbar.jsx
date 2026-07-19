@@ -81,9 +81,21 @@ export default function Navbar() {
         }`}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10">
-          <Link to="/" className="flex items-center gap-2">
+          <a
+            href={location.pathname === '/' ? '#home' : '/#home'}
+            onClick={(e) => {
+              if (location.pathname === '/') {
+                e.preventDefault()
+                const homeSec = document.querySelector('#home')
+                if (homeSec) {
+                  homeSec.scrollIntoView({ behavior: 'smooth' })
+                }
+              }
+            }}
+            className="flex items-center gap-2"
+          >
             <img src={logo} alt="Shruti Fotography" className="h-14 md:h-16 w-auto dark:invert transition-transform duration-300 hover:scale-105" />
-          </Link>
+          </a>
 
           <ul className="hidden items-center gap-9 lg:flex">
             {navLinks.map((link) => {
@@ -219,9 +231,22 @@ export default function Navbar() {
             transition={{ duration: 0.35 }}
           >
             <div className="flex items-center justify-between px-6 py-6">
-              <span className="flex items-center gap-2">
+              <a
+                href={location.pathname === '/' ? '#home' : '/#home'}
+                onClick={(e) => {
+                  setOpen(false)
+                  if (location.pathname === '/') {
+                    e.preventDefault()
+                    const homeSec = document.querySelector('#home')
+                    if (homeSec) {
+                      homeSec.scrollIntoView({ behavior: 'smooth' })
+                    }
+                  }
+                }}
+                className="flex items-center gap-2"
+              >
                 <img src={logo} alt="Shruti Fotography" className="h-14 w-auto dark:invert" />
-              </span>
+              </a>
               <div className="flex items-center gap-4">
                 <button
                   onClick={toggleTheme}

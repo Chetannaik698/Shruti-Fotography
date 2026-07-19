@@ -7,6 +7,7 @@ import Image from '../models/Image.js'
 // @access  Private
 export const toggleLike = asyncHandler(async (req, res) => {
   const { imageId } = req.params
+  const { action } = req.body
 
   const image = await Image.findById(imageId)
   if (!image) {
@@ -14,17 +15,27 @@ export const toggleLike = asyncHandler(async (req, res) => {
     throw new Error('Image not found')
   }
 
-  const existing = await Like.findOne({ user: req.user._id, image: imageId })
-
   let liked
-  if (existing) {
-    await existing.deleteOne()
-    image.likesCount = Math.max(0, image.likesCount - 1)
-    liked = false
+  if (req.user) {
+    const existing = await Like.findOne({ user: req.user._id, image: imageId })
+
+    if (existing) {
+      await existing.deleteOne()
+      image.likesCount = Math.max(0, image.likesCount - 1)
+      liked = false
+    } else {
+      await Like.create({ user: req.user._id, image: imageId })
+      image.likesCount += 1
+      liked = true
+    }
   } else {
-    await Like.create({ user: req.user._id, image: imageId })
-    image.likesCount += 1
-    liked = true
+    if (action === 'unlike') {
+      image.likesCount = Math.max(0, image.likesCount - 1)
+      liked = false
+    } else {
+      image.likesCount += 1
+      liked = true
+    }
   }
 
   await image.save()

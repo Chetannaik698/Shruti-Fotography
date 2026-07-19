@@ -2,19 +2,55 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { FiHeart } from 'react-icons/fi'
 import api from '../api/axios'
+import { useAuth } from '../context/AuthContext'
+import { useGallery } from '../context/GalleryContext'
 
 export default function Favorites() {
+  const { isAuthenticated } = useAuth()
+  const { images: allImages, fetchImages } = useGallery()
   const [images, setImages] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
   useEffect(() => {
-    api
-      .get('/likes/me')
-      .then(({ data }) => setImages(data.images))
-      .catch((err) => setError(err.response?.data?.message || 'Failed to load favorites'))
-      .finally(() => setLoading(false))
-  }, [])
+    if (isAuthenticated) {
+      api
+        .get('/likes/me')
+        .then(({ data }) => setImages(data.images))
+        .catch((err) => setError(err.response?.data?.message || 'Failed to load favorites'))
+        .finally(() => setLoading(false))
+    } else {
+      const loadGuestFavorites = async () => {
+        try {
+          let guestLikes = []
+          try {
+            guestLikes = JSON.parse(localStorage.getItem('guest_likes') || '[]')
+          } catch (e) {
+            guestLikes = []
+          }
+
+          if (guestLikes.length === 0) {
+            setImages([])
+            setLoading(false)
+            return
+          }
+
+          let currentImages = allImages
+          if (currentImages.length === 0) {
+            currentImages = await fetchImages()
+          }
+
+          const favs = currentImages.filter((img) => guestLikes.includes(img.id))
+          setImages(favs)
+        } catch (err) {
+          setError('Failed to load favorites')
+        } finally {
+          setLoading(false)
+        }
+      }
+      loadGuestFavorites()
+    }
+  }, [isAuthenticated, allImages, fetchImages])
 
   return (
     <div className="min-h-screen bg-bg px-6 py-28 lg:px-10">
