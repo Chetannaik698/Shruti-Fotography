@@ -22,8 +22,8 @@ export const portfolioCategories = [
   'Stage functions',
   'Brahmapadesham',
   'Haldi',
-  'Outdoor Photography',
-  'Candid Photography',
+  'Outdoor Fotography',
+  'Candid Fotography',
   'Baby Shoot',
   'Maternity',
   'Portrait',
@@ -55,13 +55,13 @@ export const stats = [
 ]
 
 export const services = [
-  { title: 'Wedding Photography', desc: 'Cinematic coverage of every vow, glance and celebration, told in a timeless visual narrative.', icon: 'ring' },
+  { title: 'Wedding Fotography', desc: 'Cinematic coverage of every vow, glance and celebration, told in a timeless visual narrative.', icon: 'ring' },
   { title: 'Cinematic Videography', desc: 'Feature-film quality highlight films that relive your day in motion and sound.', icon: 'film' },
   { title: 'Drone Shoots', desc: 'Sweeping aerial perspectives that capture the scale and beauty of your venue.', icon: 'drone' },
   { title: 'Foto Frames', desc: 'Premium, museum-grade frames to showcase and preserve your favorite memories.', icon: 'frame' },
   { title: 'Lamination', desc: 'High-quality protective lamination for documents, posters, and professional prints.', icon: 'layers' },
   { title: 'Xerox Copier', desc: 'Fast, high-fidelity black-and-white or full color copy solutions for all document sizes.', icon: 'copy' },
-  { title: 'Quality Printings', desc: 'Professional photography and document print services with vibrant color accuracy.', icon: 'printer' },
+  { title: 'Quality Printings', desc: 'Professional fotography and document print services with vibrant color accuracy.', icon: 'printer' },
   { title: 'ID Cards', desc: 'Custom identity card printing with premium finishes for schools and corporate teams.', icon: 'idcard' },
   { title: 'Mug Printing', desc: 'Vibrant, personalized custom mugs that make perfect gifts or corporate swag.', icon: 'coffee' },
   { title: 'Album Design', desc: 'Hand-crafted, archival albums that turn your favorite frames into heirlooms.', icon: 'book' },
@@ -149,7 +149,7 @@ export const faqs = [
 ]
 
 export const contactInfo = {
-  phone: '+91 81052 05660',
+  phone: '+91 81230 50660',
   landline: '08385-200660',
   email: 'shrutifotography@gmail.com',
   address: '399/1, Gudigar Galli, Main Road, Bhatkal - 561320',
@@ -161,9 +161,8 @@ export const studioLocation = {
   address: '399/1, Gudigar Galli, Main Road, Bhatkal - 561320',
   directionsUrl: 'https://maps.app.goo.gl/PLc3w3tmsDVD651J9',
   hours: [
-    { day: 'Monday – Friday', time: '9:00 AM – 7:00 PM' },
-    { day: 'Saturday', time: '10:00 AM – 5:00 PM' },
-    { day: 'Sunday', time: 'By appointment' },
+    { day: 'Monday – Saturday', time: '9:15 AM – 7:00 PM' },
+    { day: 'Sunday', time: '9:15 AM – 1:00 PM' },
   ],
 }
 

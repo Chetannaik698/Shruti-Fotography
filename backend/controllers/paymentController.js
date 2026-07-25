@@ -112,9 +112,9 @@ export const updatePaymentStatus = asyncHandler(async (req, res) => {
   let updateText = `Hello ${payment.name},\n\n`
 
   if (status === 'verified') {
-    updateText += `Great news! Your payment of ${formattedAmount} (Transaction ID: ${payment.transactionId}) has been successfully verified by our team.\n\nYour session booking is now fully confirmed. We look forward to capturing your beautiful memories!\n\nIf you have any questions, feel free to reach out to us at +91 81052 05660.`
+    updateText += `Great news! Your payment of ${formattedAmount} (Transaction ID: ${payment.transactionId}) has been successfully verified by our team.\n\nYour session booking is now fully confirmed. We look forward to capturing your beautiful memories!\n\nIf you have any questions, feel free to reach out to us at +91 81230 50660.`
   } else {
-    updateText += `We were unable to verify your payment of ${formattedAmount} (Transaction ID: ${payment.transactionId}) against our bank statement.\n\nPlease check the Transaction ID / UTR you entered, or contact us at +91 81052 05660 to resolve this payment issue.`
+    updateText += `We were unable to verify your payment of ${formattedAmount} (Transaction ID: ${payment.transactionId}) against our bank statement.\n\nPlease check the Transaction ID / UTR you entered, or contact us at +91 81230 50660 to resolve this payment issue.`
   }
 
   updateText += `\n\nBest Regards,\nShruti Fotography`

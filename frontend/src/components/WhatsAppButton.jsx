@@ -7,7 +7,7 @@ export function buildWhatsAppLink(message) {
   return `https://wa.me/${phoneDigits}?text=${encodeURIComponent(message)}`
 }
 
-export default function WhatsAppButton({ message = "Hi Shruti Fotography! I'd love to enquire about a photography session.", floating = true }) {
+export default function WhatsAppButton({ message = "Hi Shruti Fotography! I'd love to enquire about a fotography session.", floating = true }) {
   const href = buildWhatsAppLink(message)
 
   if (!floating) {

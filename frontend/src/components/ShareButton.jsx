@@ -9,7 +9,7 @@ export default function ShareButton({ image, size = 16, className = '' }) {
   const menuRef = useRef(null)
 
   const imageUrl = image.imageUrl || image.src || ''
-  const shareTitle = image.title || 'Studio Photography'
+  const shareTitle = image.title || 'Studio Fotography'
   const shareText = `Check out this beautiful photo "${shareTitle}" from Shruti Fotography!\n\nWebsite: ${window.location.origin}\nPhoto: ${imageUrl}`
 
   // Click outside to close dropdown

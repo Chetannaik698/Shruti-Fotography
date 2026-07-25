@@ -26,8 +26,8 @@ export default function Payment() {
   const [submitError, setSubmitError] = useState('')
 
   // Default Payee VPA & Phone
-  const rawPhoneNumber = '8105205660'
-  const formattedPhoneNumber = '81052 05660'
+  const rawPhoneNumber = '8123050660'
+  const formattedPhoneNumber = '81230 50660'
   const upiId = 'rajgudigar1968-2@okaxis'
   const payeeName = 'Shruti Fotography'
 

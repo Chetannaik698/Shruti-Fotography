@@ -81,7 +81,7 @@ export default function Hero() {
           transition={{ delay: 1.1, duration: 0.8 }}
           className="mt-7 max-w-md font-body text-base text-ink/70 dark:text-white/70 md:text-lg"
         >
-          Luxury Wedding, Portrait &amp; Event Photography — crafted with cinematic precision for those who don&rsquo;t forget a moment.
+          Luxury Wedding, Portrait &amp; Event Fotography — crafted with cinematic precision for those who don&rsquo;t forget a moment.
         </motion.p>
 
         <motion.div

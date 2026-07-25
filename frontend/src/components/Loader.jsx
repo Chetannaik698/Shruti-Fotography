@@ -36,7 +36,7 @@ export default function Loader({ show }) {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            Photography
+            Fotography
           </motion.span>
         </motion.div>
       )}

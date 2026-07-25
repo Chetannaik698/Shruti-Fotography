@@ -18,8 +18,8 @@ const targetCategories = [
   'Stage functions',
   'Brahmapadesham',
   'Haldi',
-  'Outdoor Photography',
-  'Candid Photography',
+  'Outdoor Fotography',
+  'Candid Fotography',
   'Baby Shoot',
   'Maternity',
   'Portrait',
@@ -37,8 +37,10 @@ const migrationMap = {
   'Birthday Parties': 'Birthday and Party',
   'Birthaday and Party': 'Birthday and Party',
   'Events': 'Stage functions',
-  'outdoor Fotography': 'Outdoor Photography',
-  'Candid Fotography': 'Candid Photography',
+  'Outdoor Photography': 'Outdoor Fotography',
+  'outdoor Photography': 'Outdoor Fotography',
+  'Candid Photography': 'Candid Fotography',
+  'candid Photography': 'Candid Fotography',
   'Portraits': 'Portrait'
 }
 

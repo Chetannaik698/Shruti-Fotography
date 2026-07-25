@@ -104,7 +104,7 @@ export default function Contact() {
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <Field label="Full Name" id="name" placeholder="Pooja Kamath" value={formData.name} onChange={handleChange} required />
                 <Field label="Email" id="email" type="email" placeholder="pooja@gmail.com" value={formData.email} onChange={handleChange} required />
-                <Field label="Phone" id="phone" placeholder="+91 81052 05660" value={formData.phone} onChange={handleChange} required />
+                <Field label="Phone" id="phone" placeholder="+91 81230 50660" value={formData.phone} onChange={handleChange} required />
                 
                 <div>
                   <label htmlFor="category" className="mb-2 block text-xs uppercase tracking-widest text-muted">

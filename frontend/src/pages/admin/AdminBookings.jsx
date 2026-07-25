@@ -62,7 +62,7 @@ export default function AdminBookings() {
             <span className="text-gold"><FiCalendar /></span>
             Session Bookings
           </h1>
-          <p className="mt-1 text-sm text-muted">View and manage photography and services bookings from your customers.</p>
+          <p className="mt-1 text-sm text-muted">View and manage fotography and services bookings from your customers.</p>
         </div>
         <button
           onClick={loadBookings}

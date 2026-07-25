@@ -14,7 +14,7 @@ export default function Footer() {
               <img src={logo} alt="Shruti Fotography" className="h-10 w-auto dark:invert" />
             </a>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
-              Luxury wedding, portrait and event photography studio, crafting cinematic
+              Luxury wedding, portrait and event fotography studio, crafting cinematic
               stories worth remembering.
             </p>
             <div className="mt-6 flex gap-3">

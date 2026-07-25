@@ -35,7 +35,7 @@ export default function About() {
                 <motion.img
                   style={{ y }}
                   src={rajImage}
-                  alt="Raj Gudigar - Founder of Shruti Photography"
+                  alt="Raj Gudigar - Founder of Shruti Fotography"
                   loading="lazy"
                   className="h-[120%] w-full object-cover object-center scale-110 filter sepia-[0.15] contrast-[1.05] saturate-[1.05] brightness-[0.97] transition-all duration-300"
                 />
@@ -75,13 +75,13 @@ export default function About() {
           <Reveal delay={0.15}>
             <div className="mt-8 space-y-6 text-muted leading-relaxed font-body text-sm md:text-base">
               <p>
-                Raj Gudigar is the creative force behind Shruti Photography, bringing over 40 years of experience behind the lens. Throughout his remarkable career, he has worked across photography, film productions, television serials, documentaries, weddings, commercial campaigns, and countless memorable events. His journey has been driven by passion, precision, creativity, and a deep understanding of visual storytelling.
+                Raj Gudigar is the creative force behind Shruti Fotography, bringing over 40 years of experience behind the lens. Throughout his remarkable career, he has worked across fotography, film productions, television serials, documentaries, weddings, commercial campaigns, and countless memorable events. His journey has been driven by passion, precision, creativity, and a deep understanding of visual storytelling.
               </p>
               <p>
-                In 2020, he founded Shruti Photography with a simple vision—to create timeless photographs and cinematic films that families can cherish for generations. Since its inception, the studio has built a strong reputation for capturing authentic emotions, meaningful moments, and unforgettable celebrations with exceptional attention to detail.
+                In 2020, he founded Shruti Fotography with a simple vision—to create timeless photographs and cinematic films that families can cherish for generations. Since its inception, the studio has built a strong reputation for capturing authentic emotions, meaningful moments, and unforgettable celebrations with exceptional attention to detail.
               </p>
               <p>
-                Today, Shruti Photography blends four decades of professional expertise with modern creativity, delivering wedding photography, cinematic films, portraits, commercial photography, and visual stories that feel natural, elegant, and timeless.
+                Today, Shruti Fotography blends four decades of professional expertise with modern creativity, delivering wedding fotography, cinematic films, portraits, commercial fotography, and visual stories that feel natural, elegant, and timeless.
               </p>
             </div>
           </Reveal>
