@@ -20,7 +20,7 @@ export const portfolioCategories = [
   'Pre_post Wedding',
   'Birthday and Party',
   'Stage functions',
-  'Brahmapadesham',
+  'Brahmopadesham',
   'Haldi',
   'Outdoor Fotography',
   'Candid Fotography',

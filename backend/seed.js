@@ -16,7 +16,7 @@ const targetCategories = [
   'Pre_post Wedding',
   'Birthday and Party',
   'Stage functions',
-  'Brahmapadesham',
+  'Brahmopadesham',
   'Haldi',
   'Outdoor Fotography',
   'Candid Fotography',
@@ -29,6 +29,7 @@ const targetCategories = [
 ]
 
 const migrationMap = {
+  'Brahmapadesham': 'Brahmopadesham',
   'Wedding': 'Engagement/Wedding',
   'Weddings': 'Engagement/Wedding',
   'Wedding Shoots': 'Engagement/Wedding',

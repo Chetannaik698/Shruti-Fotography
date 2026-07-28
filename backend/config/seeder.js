@@ -9,7 +9,7 @@ export const seedDefaults = async () => {
       'Pre_post Wedding',
       'Birthday and Party',
       'Stage functions',
-      'Brahmapadesham',
+      'Brahmopadesham',
       'Haldi',
       'Outdoor Fotography',
       'Candid Fotography',
@@ -22,6 +22,7 @@ export const seedDefaults = async () => {
     ]
 
     const migrationMap = {
+      'Brahmapadesham': 'Brahmopadesham',
       'Wedding': 'Engagement/Wedding',
       'Weddings': 'Engagement/Wedding',
       'Wedding Shoots': 'Engagement/Wedding',
