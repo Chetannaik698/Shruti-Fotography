@@ -3,7 +3,6 @@ import Portfolio from '../components/Portfolio'
 import About from '../components/About'
 import Services from '../components/Services'
 import WhyChooseUs from '../components/WhyChooseUs'
-import Testimonials from '../components/Testimonials'
 import InstagramGallery from '../components/InstagramGallery'
 import StudioLocation from '../components/StudioLocation'
 import FAQ from '../components/FAQ'
@@ -18,7 +17,6 @@ export default function Home() {
       <About />
       <Services />
       <WhyChooseUs />
-      <Testimonials />
       <InstagramGallery />
       <StudioLocation />
       <FAQ />

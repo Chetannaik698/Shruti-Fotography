@@ -1,9 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
-import { stats } from '../data/content'
 import rajImage from '../assets/Raj.png'
 import Reveal from './Reveal'
-import Counter from './Counter'
 
 export default function About() {
   const targetRef = useRef(null)
@@ -91,18 +89,6 @@ export default function About() {
               VIEW OUR JOURNEY
             </a>
           </Reveal>
-
-          {/* Statistics Grid */}
-          <div className="mt-16 grid grid-cols-2 gap-8 border-t border-ink/10 pt-10 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
-            {stats.map((s, i) => (
-              <Reveal key={s.label} delay={0.1 * i}>
-                <p className="font-display text-3xl text-ink md:text-4xl">
-                  <Counter value={s.value} suffix={s.suffix} />
-                </p>
-                <p className="mt-2 text-[10px] uppercase tracking-widest text-muted font-body font-medium">{s.label}</p>
-              </Reveal>
-            ))}
-          </div>
         </div>
         
       </div>

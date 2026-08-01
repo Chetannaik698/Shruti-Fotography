@@ -47,12 +47,7 @@ export const portfolioImages = [
   { id: 12, category: 'Portrait', title: 'Editorial Calm', src: img('photo-1507003211169-0a1dd7228f2d'), tall: false },
 ]
 
-export const stats = [
-  { value: 10, suffix: '+', label: 'Years Experience' },
-  { value: 800, suffix: '+', label: 'Weddings Captured' },
-  { value: 5000, suffix: '+', label: 'Happy Clients' },
-  { value: 50, suffix: '+', label: 'Awards Won' },
-]
+export const stats = []
 
 export const services = [
   { title: 'Wedding Fotography', desc: 'Cinematic coverage of every vow, glance and celebration, told in a timeless visual narrative.', icon: 'ring' },
@@ -76,36 +71,7 @@ export const whyChooseUs = [
   { title: 'Trusted by Hundreds', desc: 'A reputation built entirely on referrals and repeat clients.', icon: 'shield' },
 ]
 
-export const testimonials = [
-  {
-    name: 'Ananya & Kabir Mehta',
-    role: 'Wedding, Udaipur',
-    quote: 'Shruti Fotography did not just photograph our wedding, they understood it before it happened. Every image feels like a memory we already had.',
-    avatar: img('photo-1494790108377-be9c29b29330', 200, 80),
-    rating: 5,
-  },
-  {
-    name: 'Aarav Sharma',
-    role: 'Corporate Gala, Mumbai',
-    quote: 'The team was invisible during the event and extraordinary in the results. Our leadership photos have never looked this refined.',
-    avatar: img('photo-1507003211169-0a1dd7228f2d', 200, 80),
-    rating: 5,
-  },
-  {
-    name: 'Priyanka Patel',
-    role: 'Maternity Session, Bangalore',
-    quote: 'Gentle, patient, and unbelievably talented. I cried looking at the gallery. These are portraits we will keep for generations.',
-    avatar: img('photo-1544005313-94ddf0286df2', 200, 80),
-    rating: 5,
-  },
-  {
-    name: 'Aditya Verma',
-    role: 'Fashion Campaign, Mumbai',
-    quote: 'Editorial precision with real creative direction. Shruti Fotography elevated our entire campaign look book beyond what we imagined.',
-    avatar: img('photo-1489424731084-a5d8b219a5bb', 200, 80),
-    rating: 5,
-  },
-]
+export const testimonials = []
 
 export const pricingPlans = [
   {
@@ -141,11 +107,18 @@ export const instagramImages = [
 ]
 
 export const faqs = [
-  { q: 'How far in advance should we book?', a: 'For weddings, we recommend booking 9\u201312 months ahead, especially for peak season dates. Portrait and event sessions can typically be scheduled within 2\u20134 weeks.' },
-  { q: 'How many photos will we receive?', a: 'This depends on your package \u2014 Basic includes 150 edited images, Premium 400, and Luxury galleries are unlimited, covering every meaningful moment of your day.' },
-  { q: 'Do you travel for destination weddings?', a: 'Yes. Shruti Fotography regularly shoots destination weddings worldwide. Travel and accommodation are quoted separately based on location.' },
-  { q: 'What is your turnaround time?', a: 'Sneak peeks arrive within 48 hours. Full galleries are delivered in 2\u20134 weeks depending on season and package.' },
-  { q: 'Can we customize a package?', a: 'Absolutely. Every package is a starting point \u2014 we tailor coverage hours, add-ons and deliverables to fit your exact story.' },
+  {
+    q: 'What are your studio opening hours and timings?',
+    a: 'Our studio is open Monday to Saturday from 9:15 AM to 7:00 PM, and on Sunday from 9:15 AM to 1:00 PM.',
+  },
+  {
+    q: 'What services are available at Shruti Fotography?',
+    a: 'We offer Wedding & Event Fotography, Cinematic Videography, Drone Shoots, Foto Frames, Lamination, Xerox Copier, Quality Printings, ID Cards, Custom Mug Printing, and Album Design.',
+  },
+  {
+    q: 'Can I book a session or make payments online?',
+    a: 'Yes, you can submit booking inquiries via our contact section and make advance or session payments online through our secure payment page.',
+  },
 ]
 
 export const contactInfo = {
